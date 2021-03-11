@@ -19,16 +19,14 @@ Initialize the MMKV Instance with the selected properties. Returns an MMKV Insta
 ```js
 import MMKVStorage from "react-native-mmkv-storage";
 
-const MMKV = new MMKVStorage.Loader();
-
-MMKV.initialize();
+const MMKV = new MMKVStorage.Loader().initialize();
 ```
 
 **Returns:** `API`
 
 ## withInstanceID
 
-Specifies that the MMKV Instance should be created with the given ID. This way multiple intances can be created.
+Load MMKV with the specified ID. If instance does not exist, a new instance will be created.
 
 **Arguments**
 
@@ -39,9 +37,7 @@ Specifies that the MMKV Instance should be created with the given ID. This way m
 ```js
 import MMKVStorage from "react-native-mmkv-storage";
 
-const MMKV = new MMKVStorage.Loader();
-
-MMKV = MMKV.withInstanceID("mmkvInstanceWithID");
+const MMKV = new MMKVStorage.Loader().withInstanceID("myCustomStringId");
 ```
 
 **Returns:** `this`;
@@ -59,9 +55,7 @@ Encrypt the MMKV instance on initialization. By default the library generates a 
 ```js
 import MMKVStorage from "react-native-mmkv-storage";
 
-const MMKV = new MMKVStorage.Loader();
-
-MMKV = MMKV.withEncryption();
+const MMKV = new MMKVStorage.Loader().withEncryption();
 ```
 
 **Returns:** `this`;
@@ -81,9 +75,7 @@ You can also specify your own password to encrypt the storage.
 ```js
 import MMKVStorage from "react-native-mmkv-storage";
 
-const MMKV = new MMKVStorage.Loader();
-
-MMKV = MMKV.withEncryption().encryptWithCustomKey("encryptionKey");
+const MMKV = new MMKVStorage.Loader().withEncryption().encryptWithCustomKey("encryptionKey");
 ```
 
 **Returns:** `this`;
@@ -101,9 +93,7 @@ You can choose between single process or multiprocess MMKV instance.
 ```js
 import MMKVStorage from "react-native-mmkv-storage";
 
-const MMKV = new MMKVStorage.Loader();
-
-MMKV = MMKV.setProcessingMode(MMKVStorage.MODES.SINGLE_PROCESS); // OR MMKVStorage.MODES.MULTI_PROCESS
+const MMKV = new MMKVStorage.Loader().setProcessingMode(MMKVStorage.MODES.SINGLE_PROCESS); // OR MMKVStorage.MODES.MULTI_PROCESS
 ```
 
 ## setAccessibleMode (iOS only)
@@ -119,9 +109,7 @@ Choose the accessibility mode for secure key storage (IOS ONLY);
 ```js
 import MMKVStorage from "react-native-mmkv-storage";
 
-const MMKV = new MMKVStorage.Loader();
-
-MMKV = MMKV.setAccessibleMode(MMKVStorage.ACCESSIBLE.WHEN_UNLOCKED);
+const MMKV = new MMKVStorage.Loader().setAccessibleMode(MMKVStorage.ACCESSIBLE.WHEN_UNLOCKED);
 ```
 
 ```ts
@@ -150,7 +138,7 @@ MMKV = new MMKVStorage.Loader()
 .setProcessingMode(MMKVStorage.MODES.MULTI_PROCESS)
 .withEncryption()
 .encryptWithCustomKey('encryptionKey',true, 'customAlias')
-.initialize()
+.initialize();
 
 // then use it
 
