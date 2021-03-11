@@ -14,7 +14,7 @@ const MMKV = new MMKVStorage.Loader();
 
 ## initialize
 
-Initialize the MMKV Instance with the selected properties. Returns an MMKV Instance that you can use.
+Initializes the MMKV Instance with the selected properties. Returns an MMKV Instance that you can use. The initialize method should be called after all other configuration methods that are desired have been called (aka the initialize method should be called on the final MMKVStorage class instance). 
 
 ```js
 import MMKVStorage from "react-native-mmkv-storage";
@@ -26,7 +26,7 @@ const MMKV = new MMKVStorage.Loader().initialize();
 
 ## withInstanceID
 
-Load MMKV with the specified ID. If instance does not exist, a new instance will be created.
+Loads MMKV with the specified ID. If instance does not exist, a new instance will be created.
 
 **Arguments**
 
@@ -44,7 +44,7 @@ const MMKV = new MMKVStorage.Loader().withInstanceID("myCustomStringId");
 
 ## withEncryption
 
-Encrypt the MMKV instance on initialization. By default the library generates a strong password and stores it in Keychain on iOS and Android Keystore in Android.
+Encrypts the MMKV instance on initialization. By default the library generates a strong password and stores it in Keychain on iOS and Android Keystore in Android.
 
 **Arguments**
 
