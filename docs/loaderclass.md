@@ -145,7 +145,7 @@ Now you know about the loader class, lets create a MMKV Instance with an ID.
 ```js
 import MMKVStorage from "react-native-mmkv-storage";
 
-MMKV = new MMKVStorage.Loader().
+MMKV = new MMKVStorage.Loader()
 .withInstanceID('mmkvInstanceID')
 .setProcessingMode(MMKVStorage.MODES.MULTI_PROCESS)
 .withEncryption()
